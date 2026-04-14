@@ -1,9 +1,14 @@
 {
   "name": "@route-bridge/config",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Config validation helper for route-bridge",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
