@@ -1,0 +1,19 @@
+{
+  "name": "@route-bridge/config",
+  "version": "0.1.0",
+  "description": "Config validation helper for route-bridge",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "test": "npm run build && node dist/index.test.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "flask-route-bridge"
+version = "0.1.0"
+description = "Flask integration for route-bridge - define routes once, call them from the frontend as typed functions"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = ["flask>=2.3.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-flask>=1.3"]
+
+[project.urls]
+Homepage = "https://github.com/your-org/route-bridge"
+Repository = "https://github.com/your-org/route-bridge"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

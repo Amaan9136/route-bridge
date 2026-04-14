@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.next/
+*.js.map
+*.d.ts.map
+.DS_Store
+*.pyc
+__pycache__/
+.env
+.env.local
+*.egg-info/
+dist/
+build/
+.venv/

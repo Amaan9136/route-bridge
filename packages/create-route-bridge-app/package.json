@@ -1,0 +1,24 @@
+{
+  "name": "create-route-bridge-app",
+  "version": "0.1.0",
+  "description": "Scaffold a new route-bridge project in seconds",
+  "main": "dist/index.js",
+  "bin": {
+    "create-route-bridge-app": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@route-bridge/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

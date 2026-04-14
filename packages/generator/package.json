@@ -1,0 +1,29 @@
+{
+  "name": "@route-bridge/generator",
+  "version": "0.1.0",
+  "description": "Code generator: reads the route-bridge manifest and generates a typed TypeScript client",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "route-bridge": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "generate": "node dist/cli.js generate",
+    "test": "npm run build && node dist/index.test.js"
+  },
+  "dependencies": {
+    "@route-bridge/core": "workspace:*",
+    "@route-bridge/config": "workspace:*",
+    "@route-bridge/logger": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

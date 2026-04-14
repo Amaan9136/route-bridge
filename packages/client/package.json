@@ -1,0 +1,19 @@
+{
+  "name": "@route-bridge/client",
+  "version": "0.1.0",
+  "description": "Runtime client utilities for route-bridge generated clients",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,5 @@
+packages:
+  - 'packages/*'
+  - 'examples/express-next/backend'
+  - 'examples/express-next/frontend'
+  - 'examples/flask-next/frontend'
