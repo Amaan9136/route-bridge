@@ -1,17 +1,22 @@
 {
   "name": "@route-bridge/express",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Express route helpers for route-bridge",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@route-bridge/core": "workspace:*",
-    "@route-bridge/logger": "workspace:*"
+    "@route-bridge/core": "0.0.1",
+    "@route-bridge/logger": "0.0.1"
   },
   "peerDependencies": {
     "express": ">=4.18.0"
