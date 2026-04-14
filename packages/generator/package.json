@@ -1,9 +1,14 @@
 {
   "name": "@route-bridge/generator",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Code generator: reads the route-bridge manifest and generates a typed TypeScript client",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "bin": {
     "route-bridge": "dist/cli.js"
   },
@@ -15,9 +20,9 @@
     "test": "npm run build && node dist/index.test.js"
   },
   "dependencies": {
-    "@route-bridge/core": "workspace:*",
-    "@route-bridge/config": "workspace:*",
-    "@route-bridge/logger": "workspace:*"
+    "@route-bridge/core": "0.0.1",
+    "@route-bridge/config": "0.0.1",
+    "@route-bridge/logger": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
