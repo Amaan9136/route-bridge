@@ -6,6 +6,7 @@
  */
 
 import fs from "fs";
+import crypto from "crypto";
 import path from "path";
 import { Router, Request, Response, NextFunction, RequestHandler } from "express";
 import {
@@ -126,6 +127,7 @@ export function createRouteBridge(options: RouteBridgeExpressOptions = {}): Rout
         method: def.method,
         path: req.path,
         routeName: def.name,
+        requestId: crypto.randomUUID(),
       });
 
       try {

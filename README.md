@@ -563,6 +563,12 @@ python -m build
 twine upload dist/*
 ```
 
+### Repomix 
+
+```bash
+repomix "D:\0 AMAAN MAIN\0 Codes and Tools\My Packages\route-bridge" -o prompting/route-bridge.md --style markdown --ignore "node_modules,.next,dist,build,.git,.turbo,coverage"
+```
+
 ---
 
 ## v2 Roadmap

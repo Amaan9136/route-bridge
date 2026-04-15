@@ -17,7 +17,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@route-bridge/core": "0.0.1"
+    "@route-bridge/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",

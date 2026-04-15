@@ -15,8 +15,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@route-bridge/core": "0.0.1",
-    "@route-bridge/logger": "0.0.1"
+    "@route-bridge/core": "workspace:*",
+    "@route-bridge/logger": "workspace:*"
   },
   "peerDependencies": {
     "express": ">=4.18.0"
