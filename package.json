@@ -1,8 +1,28 @@
 {
-  "name": "route-bridge-monorepo",
-  "private": true,
+  "name": "route-bridge",
+  "private": false,
   "version": "0.0.1",
-  "description": "route-bridge monorepo - define backend routes once, call them from the frontend as typed functions",
+  "description": "route-bridge lets you define backend APIs once and automatically use them in frontend apps as simple function calls. It generates a typed client from a shared contract, removing fetch boilerplate and supporting Express, Flask, Next.js, and Node.js with clean DX.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amaan9136/route-bridge.git"
+  },
+  "homepage": "https://github.com/Amaan9136/route-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/Amaan9136/route-bridge/issues"
+  },
+  "keywords": [
+    "api",
+    "codegen",
+    "typescript",
+    "express",
+    "flask",
+    "nextjs",
+    "fetch",
+    "client",
+    "contract",
+    "route-bridge"
+  ],
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm -r --parallel dev",
