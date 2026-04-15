@@ -12,7 +12,7 @@ import { useState } from "react";
 import { createApiClient } from "../lib/generated/client";
 
 const api = createApiClient({
-  baseUrl: "http://localhost:3001/api",
+  baseUrl: "http://localhost:8000/api",
   debug: true,
 });
 

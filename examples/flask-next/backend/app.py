@@ -26,7 +26,7 @@ from flask_route_bridge import RouteBridge
 # ─── App setup ────────────────────────────────────────────────────────────────
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
+CORS(app, origins=["http://localhost:3001"])
 
 # ─── route-bridge setup ───────────────────────────────────────────────────────
 
@@ -131,6 +131,6 @@ def delete_post(body, query, params, request):
 
 if __name__ == "__main__":
     rb.write_manifest()
-    print("\n  🌉 route-bridge + Flask running on http://localhost:3001\n")
+    print("\n  🌉 route-bridge + Flask running on http://localhost:8000\n")
     print("  Run `npx route-bridge generate` to produce the frontend client.\n")
-    app.run(port=3001, debug=True)
+    app.run(port=8000, debug=True)

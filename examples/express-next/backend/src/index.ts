@@ -15,7 +15,7 @@ import { defineConfig, validateConfig } from "@route-bridge/config";
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const config = defineConfig({
-  baseUrl: "http://localhost:3001",
+  baseUrl: "http://localhost:5000",
   backend: "express",
   debug: true,
 });
@@ -146,7 +146,7 @@ defineRoute({
 app.use("/api", router);
 app.use(routeBridgeErrorHandler());
 
-const PORT = Number(process.env.PORT ?? 3001);
+const PORT = Number(process.env.PORT ?? 5000);
 app.listen(PORT, () => {
   console.log(`\n  🌉 route-bridge + Express running on http://localhost:${PORT}\n`);
   writeManifest();

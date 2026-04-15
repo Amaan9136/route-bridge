@@ -13,7 +13,7 @@ import { createApiClient } from "../lib/generated/client";
 // Create a single client instance for the whole app
 // In a real project: put this in lib/api.ts and export it
 const api = createApiClient({
-  baseUrl: "http://localhost:3001/api",
+  baseUrl: "http://localhost:5000/api",
   debug: true,
 });
 
