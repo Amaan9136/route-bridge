@@ -545,6 +545,17 @@ pnpm --filter @route-bridge/generator publish --access public
 pnpm --filter create-route-bridge-app publish --access public
 ```
 
+### verify package versions
+```bash
+echo "core:" && npm view @route-bridge/core version
+echo "express:" && npm view @route-bridge/express version
+echo "generator:" && npm view @route-bridge/generator version
+echo "logger:" && npm view @route-bridge/logger version
+echo "config:" && npm view @route-bridge/config version
+echo "client:" && npm view @route-bridge/client version
+echo "create-app:" && npm view create-route-bridge-app version
+```
+
 Or use changesets for automated versioning:
 
 ```bash
