@@ -1,5 +1,8 @@
 # 🌉 route-bridge
 
+[![npm version](https://img.shields.io/npm/v/create-route-bridge-app)](https://www.npmjs.com/package/create-route-bridge-app)
+[![npm downloads](https://img.shields.io/npm/dm/create-route-bridge-app)](https://www.npmjs.com/package/create-route-bridge-app)
+
 **Define backend routes once. Call them from the frontend as typed functions. No handwritten fetch wrappers.**
 
 route-bridge is a contract-driven developer tool platform that connects your backend API to your frontend automatically. You define routes using small helper functions in Express or Flask, route-bridge writes a machine-readable manifest, and the generator produces a fully-typed TypeScript client that you can call directly — as if the backend functions were local.
