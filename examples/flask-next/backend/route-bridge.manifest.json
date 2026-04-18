@@ -1,45 +1,74 @@
 {
   "version": "1",
-  "generatedAt": "2024-05-01T00:00:00.000Z",
+  "generatedAt": "2026-04-18T07:40:15.190366+00:00",
   "routes": [
     {
       "name": "getGreeting",
       "method": "GET",
       "path": "/greeting",
-      "query": { "name": "string?" },
-      "response": { "message": "string" },
+      "query": {
+        "name": "string?"
+      },
+      "response": {
+        "message": "string"
+      },
       "description": "Return a personalised greeting"
     },
     {
       "name": "getUserById",
       "method": "GET",
       "path": "/users/:id",
-      "params": { "id": "string" },
-      "response": { "id": "string", "name": "string", "email": "string" },
+      "params": {
+        "id": "string"
+      },
+      "response": {
+        "id": "string",
+        "name": "string",
+        "email": "string"
+      },
       "description": "Fetch a user by ID"
     },
     {
       "name": "createUser",
       "method": "POST",
       "path": "/users",
-      "body": { "name": "string", "email": "string" },
-      "response": { "id": "string", "name": "string", "email": "string", "createdAt": "string" },
+      "body": {
+        "name": "string",
+        "email": "string"
+      },
+      "response": {
+        "id": "string",
+        "name": "string",
+        "email": "string",
+        "createdAt": "string"
+      },
       "description": "Create a new user"
     },
     {
       "name": "listPosts",
       "method": "GET",
       "path": "/posts",
-      "query": { "page": "number?", "limit": "number?" },
-      "response": { "posts": "any", "total": "number", "page": "number" },
+      "query": {
+        "page": "number?",
+        "limit": "number?"
+      },
+      "response": {
+        "posts": "any",
+        "total": "number",
+        "page": "number"
+      },
       "description": "List paginated posts"
     },
     {
       "name": "deletePost",
       "method": "DELETE",
       "path": "/posts/:id",
-      "params": { "id": "string" },
-      "response": { "success": "boolean" },
+      "params": {
+        "id": "string"
+      },
+      "response": {
+        "success": "boolean"
+      },
       "description": "Delete a post by ID"
     }
   ]

@@ -6,37 +6,27 @@
  * 2. The manifest is written automatically
  * 3. Run `npm run generate` to produce the typed frontend client
  */
-
 import express from "express";
 import cors from "cors";
 import { createRouteBridge, routeBridgeErrorHandler } from "@route-bridge/express";
 import { defineConfig, validateConfig } from "@route-bridge/config";
-
 // ─── Config ───────────────────────────────────────────────────────────────────
-
 const config = defineConfig({
   baseUrl: "http://localhost:5000",
   backend: "express",
   debug: true,
 });
-
 validateConfig(config);
-
 // ─── App ──────────────────────────────────────────────────────────────────────
-
 const app = express();
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
-
 // ─── route-bridge setup ───────────────────────────────────────────────────────
-
 const { router, defineRoute, writeManifest } = createRouteBridge({
   manifestPath: "./route-bridge.manifest.json",
   logging: config.logging,
 });
-
 // ─── Route definitions ────────────────────────────────────────────────────────
-
 /**
  * GET /greeting?name=Amaan
  * Returns a personalised greeting.
@@ -53,7 +43,6 @@ defineRoute({
     return { message: `Hello, ${name}! Greetings from route-bridge + Express.` };
   },
 });
-
 /**
  * GET /users/:id
  * Fetch a user by ID.
@@ -69,7 +58,7 @@ defineRoute({
     const { id } = params as { id: string };
     // Simulated database lookup
     const users: Record<string, { name: string; email: string }> = {
-      "1": { name: "Amaan Qureshi", email: "amaan@example.com" },
+      "1": { name: "Amaan Mohammed Khalander", email: "amaan@example.com" },
       "2": { name: "Ada Lovelace", email: "ada@example.com" },
     };
     const user = users[id];
@@ -77,7 +66,6 @@ defineRoute({
     return { id, ...user };
   },
 });
-
 /**
  * POST /users
  * Create a new user.
@@ -99,7 +87,6 @@ defineRoute({
     };
   },
 });
-
 /**
  * GET /posts?page=1&limit=10
  * List paginated posts.
@@ -123,7 +110,6 @@ defineRoute({
     };
   },
 });
-
 /**
  * DELETE /posts/:id
  * Delete a post.
@@ -140,12 +126,9 @@ defineRoute({
     return { success: true };
   },
 });
-
 // ─── Mount & start ────────────────────────────────────────────────────────────
-
 app.use("/api", router);
 app.use(routeBridgeErrorHandler());
-
 const PORT = Number(process.env.PORT ?? 5000);
 app.listen(PORT, () => {
   console.log(`\n  🌉 route-bridge + Express running on http://localhost:${PORT}\n`);

@@ -10,12 +10,8 @@ setup(
     license="MIT",
     packages=find_packages(),
     python_requires=">=3.9",
-    install_requires=[
-        "flask>=2.3.0",
-    ],
-    extras_require={
-        "dev": ["pytest", "pytest-flask"],
-    },
+    install_requires=["flask>=2.3.0"],
+    extras_require={"dev": ["pytest", "pytest-flask"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Framework :: Flask",

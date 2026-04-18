@@ -2,11 +2,9 @@
 echo Starting Express + Next.js example...
 start "Express Backend" cmd /k "cd /d %~dp0examples\express-next\backend && pnpm dev"
 start "Express Frontend" cmd /k "cd /d %~dp0examples\express-next\frontend && pnpm dev"
-
 echo Starting Flask + Next.js example...
-start "Flask Backend" cmd /k "cd /d %~dp0examples\flask-next\backend && pip install -r requirements.txt && python app.py"
+start "Flask Backend" cmd /k "call C:\ProgramData\anaconda3\Scripts\activate.bat base && cd /d %~dp0examples\flask-next\backend && pip install -r requirements.txt && python app.py"
 start "Flask Frontend" cmd /k "cd /d %~dp0examples\flask-next\frontend && pnpm dev"
-
 echo.
 echo All servers starting...
 echo.
