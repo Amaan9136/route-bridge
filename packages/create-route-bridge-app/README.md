@@ -2,6 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/create-route-bridge-app)](https://www.npmjs.com/package/create-route-bridge-app)
 [![npm downloads](https://img.shields.io/npm/dm/create-route-bridge-app)](https://www.npmjs.com/package/create-route-bridge-app)
+[![PyPI version](https://img.shields.io/pypi/v/flask-route-bridge)](https://pypi.org/project/flask-route-bridge/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/flask-route-bridge)](https://pypi.org/project/flask-route-bridge/)
 
 **Define backend routes once. Call them from the frontend as typed functions. No handwritten fetch wrappers.**
 
