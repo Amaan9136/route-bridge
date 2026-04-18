@@ -1,9 +1,18 @@
 {
   "name": "create-route-bridge-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Scaffold a new Route Bridge project in seconds",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amaan9136/route-bridge.git",
+    "directory": "packages/create-route-bridge-app"
+  },
+  "homepage": "https://github.com/Amaan9136/route-bridge/tree/main/packages/create-route-bridge-app#readme",
+  "bugs": {
+    "url": "https://github.com/Amaan9136/route-bridge/issues"
+  },
   "bin": {
     "create-route-bridge-app": "dist/cli.js"
   },
