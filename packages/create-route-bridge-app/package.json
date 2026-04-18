@@ -1,29 +1,33 @@
 {
   "name": "create-route-bridge-app",
-  "version": "0.0.1",
-  "description": "Scaffold a new route-bridge project in seconds",
+  "version": "0.0.2",
+  "description": "Scaffold a new Route Bridge project in seconds",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "create-route-bridge-app": "dist/cli.js"
+  },
   "files": [
     "dist",
     "README.md",
     "LICENSE"
   ],
-  "bin": {
-    "create-route-bridge-app": "dist/cli.js"
-  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "clean": "rm -rf dist"
+    "clean": "rimraf dist",
+    "prepack": "if exist ..\\..\\README.md copy /Y ..\\..\\README.md README.md"
   },
   "dependencies": {
-    "@route-bridge/core": "workspace:*"
+    "@route-bridge/core": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "rimraf": "^6.0.1"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "license": "MIT"
 }
