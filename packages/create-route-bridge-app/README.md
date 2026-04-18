@@ -516,7 +516,7 @@ The manifest is designed to be:
 ### Install & build all packages
 
 ```bash
-git clone https://github.com/your-org/route-bridge
+git clone https://github.com/Amaan9136/route-bridge
 cd route-bridge
 pnpm install
 pnpm build
@@ -585,17 +585,10 @@ repomix "D:\0 AMAAN MAIN\0 Codes and Tools\My Packages\route-bridge" -o promptin
 
 ---
 
-## v2 Roadmap
+## v3 Roadmap (Latest Change)
 
-- **OpenAPI export** — emit standard OpenAPI 3.1 JSON from the manifest
-- **Zod schema generation** — generate Zod validators alongside TypeScript types
-- **Watch mode for backends** — auto-regenerate manifest when route files change
-- **React Query integration** — generate `useQuery`/`useMutation` hooks
-- **Auth presets** — built-in JWT, API key, and OAuth header helpers
-- **Response validation** — optional runtime validation of API responses against schema
-- **Fastify adapter** — `@route-bridge/fastify`
-- **Django adapter** — `django-route-bridge`
-- **VS Code extension** — inline type hints for route definitions
+- **Maintenance and Example Fixes** — updated Express + Next.js and Flask + Next.js demos to support custom inputs and clearer flows
+- **Updated the frontend examples to give custom inputs** — refreshed both frontend demos so you can pass your own values and see typed responses end-to-end
 
 ---
 

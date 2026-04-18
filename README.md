@@ -516,7 +516,7 @@ The manifest is designed to be:
 ### Install & build all packages
 
 ```bash
-git clone https://github.com/your-org/route-bridge
+git clone https://github.com/Amaan9136/route-bridge
 cd route-bridge
 pnpm install
 pnpm build

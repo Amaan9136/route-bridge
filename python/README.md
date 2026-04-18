@@ -1,6 +1,6 @@
 # flask-route-bridge
 
-Flask integration for [route-bridge](https://github.com/your-org/route-bridge).
+Flask integration for [route-bridge](https://github.com/Amaan9136/route-bridge).
 
 Define your Flask routes with metadata, emit a shared manifest, and generate a typed TypeScript frontend client automatically.
 

@@ -14,7 +14,7 @@ Complete instructions for setting up the route-bridge monorepo locally.
 ## 1. Clone and install
 
 ```bash
-git clone https://github.com/your-org/route-bridge
+git clone https://github.com/Amaan9136/route-bridge
 cd route-bridge
 
 # Install all Node packages across the monorepo

@@ -15,8 +15,8 @@ dependencies = ["flask>=2.3.0"]
 dev = ["pytest>=7", "pytest-flask>=1.3"]
 
 [project.urls]
-Homepage = "https://github.com/your-org/route-bridge"
-Repository = "https://github.com/your-org/route-bridge"
+Homepage = "https://github.com/Amaan9136/route-bridge"
+Repository = "https://github.com/Amaan9136/route-bridge"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

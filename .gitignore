@@ -4,8 +4,6 @@ dist/
 *.js.map
 *.d.ts.map
 .DS_Store
-*.pyc
-__pycache__/
 .env
 .env.local
 *.egg-info/
@@ -13,3 +11,13 @@ dist/
 build/
 .venv/
 prompting/
+
+# Python build artifacts
+*.pyc
+__pycache__/
+python/dist/
+python/*.egg-info/
+python/__pycache__/
+python/**/__pycache__/
+python/.eggs/
+.pypirc

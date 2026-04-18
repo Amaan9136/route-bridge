@@ -427,7 +427,7 @@ __pycache__/
     path.join(dir, "README.md"),
     `# ${projectName}
 
-Scaffolded with [route-bridge](https://github.com/your-org/route-bridge).
+Scaffolded with [route-bridge](https://github.com/Amaan9136/route-bridge).
 
 ## Quick start
 
