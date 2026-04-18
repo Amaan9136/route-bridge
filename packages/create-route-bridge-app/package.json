@@ -18,6 +18,18 @@
     "clean": "rimraf dist",
     "prepack": "if exist ..\\..\\README.md copy /Y ..\\..\\README.md README.md"
   },
+  "keywords": [
+    "api",
+    "codegen",
+    "typescript",
+    "express",
+    "flask",
+    "nextjs",
+    "scaffolding",
+    "cli",
+    "generator",
+    "route-bridge"
+  ],
   "dependencies": {
     "@route-bridge/core": "0.0.1"
   },
