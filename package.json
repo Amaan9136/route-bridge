@@ -1,7 +1,7 @@
 {
   "name": "route-bridge",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.4",
   "description": "route-bridge lets you define backend APIs once and automatically use them in frontend apps as simple function calls. It generates a typed client from a shared contract, removing fetch boilerplate and supporting Express, Flask, Next.js, and Node.js with clean DX.",
   "repository": {
     "type": "git",
