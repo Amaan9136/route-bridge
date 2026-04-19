@@ -68,7 +68,7 @@ pnpm dev
 # Terminal 2 - generate the frontend client
 cd examples/express-next/backend
 pnpm generate
-# → ../frontend/lib/generated/client.ts
+# → ../frontend/src/generated/client.ts
 
 # Terminal 3 - start the Next.js frontend
 cd examples/express-next/frontend
@@ -90,7 +90,7 @@ make dev
 # Terminal 2 - generate the frontend client
 cd examples/flask-next/backend
 make generate
-# → ../frontend/lib/generated/client.ts
+# → ../frontend/src/generated/client.ts
 
 # Terminal 3 - start the Next.js frontend
 cd examples/flask-next/frontend

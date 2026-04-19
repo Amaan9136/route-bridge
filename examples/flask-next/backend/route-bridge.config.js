@@ -4,5 +4,5 @@
  */
 module.exports = {
   manifestPath: "./route-bridge.manifest.json",
-  outputDir: "../frontend/lib/generated",
+  outputDir: "../frontend/src/generated",
 };

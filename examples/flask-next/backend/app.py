@@ -10,7 +10,7 @@ Run:
 Then in another terminal:
     npx route-bridge generate \\
       --manifest ./route-bridge.manifest.json \\
-      --output ../frontend/lib/generated
+      --output ../frontend/src/generated
 """
 import os
 import uuid

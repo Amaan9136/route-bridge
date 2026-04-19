@@ -1,6 +1,6 @@
 {
   "name": "@route-bridge/generator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Code generator: reads the route-bridge manifest and generates a typed TypeScript client",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -446,7 +446,7 @@ npm run dev
 # Terminal 2 - generate client
 cd examples/express-next/backend
 npm run generate
-# → writes examples/express-next/frontend/lib/generated/client.ts
+# → writes examples/express-next/frontend/src/generated/client.ts
 
 # Terminal 3 - frontend
 cd examples/express-next/frontend
@@ -468,7 +468,7 @@ FLASK_DEBUG=1 python app.py
 # Terminal 2 - generate client
 npx route-bridge generate \
   --manifest examples/flask-next/backend/route-bridge.manifest.json \
-  --output examples/flask-next/frontend/lib/generated
+  --output examples/flask-next/frontend/src/generated
 
 # Terminal 3 - frontend
 cd examples/flask-next/frontend
@@ -503,7 +503,6 @@ The manifest is the contract between your backend and the generator. Both Expres
 The manifest is designed to be:
 - Committable to git (track API changes in PRs)
 - Human-readable
-- Extendable to full OpenAPI export (v2 roadmap)
 
 ---
 
@@ -577,12 +576,6 @@ cd python
 pip install build twine
 python -m build
 twine upload dist/*
-```
-
-### Repomix 
-
-```bash
-repomix "D:\0 AMAAN MAIN\0 Codes and Tools\My Packages\route-bridge" -o prompting/route-bridge.md --style markdown --ignore "node_modules,.next,dist,build,.git,.turbo,coverage"
 ```
 
 ---

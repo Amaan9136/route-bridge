@@ -1,17 +1,12 @@
 #!/usr/bin/env node
 /**
  * create-route-bridge-app
- *
- * Interactive scaffolder for new route-bridge projects.
  * Usage: npx create-route-bridge-app
  */
 
 import fs from "fs";
 import path from "path";
 import readline from "readline";
-import { execSync } from "child_process";
-
-// ─── Colours ──────────────────────────────────────────────────────────────────
 
 const c = {
   reset: "\x1b[0m",
@@ -23,8 +18,6 @@ const c = {
   blue: "\x1b[34m",
 };
 const p = (col: keyof typeof c, t: string) => `${c[col]}${t}${c.reset}`;
-
-// ─── Prompt helper ────────────────────────────────────────────────────────────
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -48,8 +41,6 @@ function ask(question: string, choices?: string[], defaultVal?: string): Promise
   });
 }
 
-// ─── File writers ─────────────────────────────────────────────────────────────
-
 function write(filePath: string, content: string) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, content, "utf-8");
@@ -58,8 +49,7 @@ function write(filePath: string, content: string) {
 
 // ─── Express template ─────────────────────────────────────────────────────────
 
-function scaffoldExpress(dir: string, withFrontend: boolean) {
-  // Backend
+function scaffoldExpress(dir: string, withFrontend: boolean, withTailwind: boolean) {
   write(
     path.join(dir, "backend", "package.json"),
     JSON.stringify(
@@ -99,25 +89,18 @@ import cors from "cors";
 import { createRouteBridge, routeBridgeErrorHandler } from "@route-bridge/express";
 import { defineConfig, validateConfig } from "@route-bridge/config";
 
-// ─── Config ───────────────────────────────────────────────────────────────────
-
 const config = defineConfig({ backend: "express" });
 validateConfig(config);
-
-// ─── App setup ────────────────────────────────────────────────────────────────
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ─── route-bridge ─────────────────────────────────────────────────────────────
-
+/** createRouteBridge */
 const { router, defineRoute, writeManifest } = createRouteBridge({
   manifestPath: "./route-bridge.manifest.json",
   logging: config.debug,
 });
-
-// ─── Routes ───────────────────────────────────────────────────────────────────
 
 defineRoute({
   name: "getGreeting",
@@ -141,15 +124,9 @@ defineRoute({
   description: "Create a new item",
   handler: async ({ body }) => {
     const { title } = body as { title: string };
-    return {
-      id: Math.random().toString(36).slice(2),
-      title,
-      createdAt: new Date().toISOString(),
-    };
+    return { id: Math.random().toString(36).slice(2), title, createdAt: new Date().toISOString() };
   },
 });
-
-// ─── Mount & start ─────────────────────────────────────────────────────────────
 
 app.use("/api", router);
 app.use(routeBridgeErrorHandler());
@@ -192,12 +169,12 @@ app.listen(PORT, () => {
 `
   );
 
-  if (withFrontend) scaffoldNextFrontend(dir);
+  if (withFrontend) scaffoldNextFrontend(dir, withTailwind);
 }
 
 // ─── Flask template ───────────────────────────────────────────────────────────
 
-function scaffoldFlask(dir: string, withFrontend: boolean) {
+function scaffoldFlask(dir: string, withFrontend: boolean, withTailwind: boolean) {
   write(
     path.join(dir, "backend", "requirements.txt"),
     `flask>=2.3.0
@@ -277,12 +254,29 @@ generate:
 `
   );
 
-  if (withFrontend) scaffoldNextFrontend(dir);
+  if (withFrontend) scaffoldNextFrontend(dir, withTailwind);
 }
 
 // ─── Next.js frontend template ────────────────────────────────────────────────
 
-function scaffoldNextFrontend(dir: string) {
+function scaffoldNextFrontend(dir: string, withTailwind: boolean) {
+  const deps: Record<string, string> = {
+    next: "^15.3.1",
+    react: "^19.1.0",
+    "react-dom": "^19.1.0",
+  };
+  const devDeps: Record<string, string> = {
+    "@types/node": "^20.12.7",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    typescript: "^5.4.5",
+  };
+
+  if (withTailwind) {
+    devDeps["tailwindcss"] = "^4.1.4";
+    devDeps["@tailwindcss/postcss"] = "^4.1.4";
+  }
+
   write(
     path.join(dir, "frontend", "package.json"),
     JSON.stringify(
@@ -290,25 +284,25 @@ function scaffoldNextFrontend(dir: string) {
         name: `${path.basename(dir)}-frontend`,
         version: "0.1.0",
         private: true,
-        scripts: {
-          dev: "next dev",
-          build: "next build",
-          start: "next start",
-        },
-        dependencies: {
-          next: "^14.2.3",
-          react: "^18.3.1",
-          "react-dom": "^18.3.1",
-        },
-        devDependencies: {
-          "@types/node": "^20.12.7",
-          "@types/react": "^18.3.1",
-          typescript: "^5.4.5",
-        },
+        scripts: { dev: "next dev", build: "next build", start: "next start" },
+        dependencies: deps,
+        devDependencies: devDeps,
       },
       null,
       2
     )
+  );
+
+  write(
+    path.join(dir, "frontend", "next.config.ts"),
+    `import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+};
+
+export default nextConfig;
+`
   );
 
   write(
@@ -341,13 +335,118 @@ function scaffoldNextFrontend(dir: string) {
     )
   );
 
-  write(
-    path.join(dir, "frontend", "src", "app", "page.tsx"),
-    `"use client";
-import { useState } from "react";
-// After running \`npm run generate\` in the backend, this import becomes available:
-// import { createApiClient } from "@/generated/client";
+  if (withTailwind) {
+    write(
+      path.join(dir, "frontend", "postcss.config.mjs"),
+      `const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
 
+export default config;
+`
+    );
+
+    write(
+      path.join(dir, "frontend", "src", "app", "globals.css"),
+      `@import "tailwindcss";
+`
+    );
+
+    write(
+      path.join(dir, "frontend", "src", "app", "layout.tsx"),
+      `import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "route-bridge app",
+  description: "Scaffolded with create-route-bridge-app",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
+`
+    );
+
+    write(
+      path.join(dir, "frontend", "src", "app", "page.tsx"),
+      `"use client";
+import { useState } from "react";
+/** createApiClient */
+// import { createApiClient } from "@/generated/client";
+// const api = createApiClient({ baseUrl: "http://localhost:3001" });
+
+export default function Home() {
+  const [greeting, setGreeting] = useState<string>("");
+  const [loading, setLoading] = useState(false);
+
+  async function fetchGreeting() {
+    setLoading(true);
+    try {
+      // Replace with: const data = await api.getGreeting({ query: { name: "Dev" } });
+      const res = await fetch("http://localhost:3001/api/greeting?name=Dev");
+      const data = await res.json() as { message: string };
+      setGreeting(data.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main className="min-h-screen p-8 font-mono">
+      <h1 className="text-2xl font-bold mb-2">🌉 route-bridge demo</h1>
+      <p className="text-gray-600 mb-6">
+        Start your backend, then run <code className="bg-gray-100 px-1 rounded">npm run generate</code> in the backend directory.
+      </p>
+      <button
+        onClick={fetchGreeting}
+        disabled={loading}
+        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 transition-colors"
+      >
+        {loading ? "Loading…" : "Fetch greeting"}
+      </button>
+      {greeting && (
+        <p className="mt-4 p-3 bg-green-50 border border-green-200 text-green-800 rounded">
+          {greeting}
+        </p>
+      )}
+    </main>
+  );
+}
+`
+    );
+  } else {
+    write(
+      path.join(dir, "frontend", "src", "app", "layout.tsx"),
+      `import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "route-bridge app",
+  description: "Scaffolded with create-route-bridge-app",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
+`
+    );
+
+    write(
+      path.join(dir, "frontend", "src", "app", "page.tsx"),
+      `"use client";
+import { useState } from "react";
+/** createApiClient */
+// import { createApiClient } from "@/generated/client";
 // const api = createApiClient({ baseUrl: "http://localhost:3001" });
 
 export default function Home() {
@@ -378,7 +477,8 @@ export default function Home() {
   );
 }
 `
-  );
+    );
+  }
 
   write(
     path.join(dir, "frontend", "src", "generated", ".gitkeep"),
@@ -395,6 +495,9 @@ async function main() {
   const projectName = await ask("Project name", undefined, "my-api");
   const backend = await ask("Backend framework", ["express", "flask"], "express");
   const frontend = await ask("Include Next.js frontend?", ["yes", "no"], "yes");
+  const tailwind = frontend === "yes"
+    ? await ask("Add Tailwind CSS to frontend?", ["yes", "no"], "yes")
+    : "no";
 
   const dir = path.resolve(process.cwd(), projectName);
   if (fs.existsSync(dir)) {
@@ -404,10 +507,12 @@ async function main() {
 
   console.log(`\n  Creating project in ${p("cyan", dir)}\n`);
 
+  const withTailwind = tailwind === "yes";
+
   if (backend === "express") {
-    scaffoldExpress(dir, frontend === "yes");
+    scaffoldExpress(dir, frontend === "yes", withTailwind);
   } else {
-    scaffoldFlask(dir, frontend === "yes");
+    scaffoldFlask(dir, frontend === "yes", withTailwind);
   }
 
   write(
@@ -451,7 +556,7 @@ make generate      # generates frontend/src/generated/client.ts
 
 ${
   frontend === "yes"
-    ? `### Frontend (Next.js)
+    ? `### Frontend (Next.js${withTailwind ? " + Tailwind CSS" : ""})
 
 \`\`\`bash
 cd frontend

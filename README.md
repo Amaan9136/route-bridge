@@ -446,7 +446,7 @@ npm run dev
 # Terminal 2 - generate client
 cd examples/express-next/backend
 npm run generate
-# → writes examples/express-next/frontend/lib/generated/client.ts
+# → writes examples/express-next/frontend/src/generated/client.ts
 
 # Terminal 3 - frontend
 cd examples/express-next/frontend
@@ -468,7 +468,7 @@ FLASK_DEBUG=1 python app.py
 # Terminal 2 - generate client
 npx route-bridge generate \
   --manifest examples/flask-next/backend/route-bridge.manifest.json \
-  --output examples/flask-next/frontend/lib/generated
+  --output examples/flask-next/frontend/src/generated
 
 # Terminal 3 - frontend
 cd examples/flask-next/frontend
@@ -587,7 +587,7 @@ repomix "D:\0 AMAAN MAIN\0 Codes and Tools\My Packages\route-bridge" -o promptin
 
 ---
 
-## v2 Roadmap
+## Roadmap
 
 - **OpenAPI export** — emit standard OpenAPI 3.1 JSON from the manifest
 - **Zod schema generation** — generate Zod validators alongside TypeScript types

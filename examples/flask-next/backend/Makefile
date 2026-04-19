@@ -9,10 +9,10 @@ dev:
 generate:
 	npx route-bridge generate \
 		--manifest ./route-bridge.manifest.json \
-		--output ../frontend/lib/generated
+		--output ../frontend/src/generated
 
 generate-watch:
 	npx route-bridge generate \
 		--manifest ./route-bridge.manifest.json \
-		--output ../frontend/lib/generated \
+		--output ../frontend/src/generated \
 		--watch
