@@ -1,9 +1,18 @@
 {
   "name": "@route-bridge/logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Beautiful request logging for route-bridge backends",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amaan9136/route-bridge.git",
+    "directory": "packages/logger"
+  },
+  "homepage": "https://github.com/Amaan9136/route-bridge/tree/main/packages/logger#readme",
+  "bugs": {
+    "url": "https://github.com/Amaan9136/route-bridge/issues"
+  },
   "files": [
     "dist",
     "README.md",

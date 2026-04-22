@@ -580,13 +580,6 @@ twine upload dist/*
 
 ---
 
-## v3 Roadmap (Latest Change)
-
-- **Maintenance and Example Fixes** — updated Express + Next.js and Flask + Next.js demos to support custom inputs and clearer flows
-- **Updated the frontend examples to give custom inputs** — refreshed both frontend demos so you can pass your own values and see typed responses end-to-end
-
----
-
 ## License
 
 MIT © route-bridge contributors

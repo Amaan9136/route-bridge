@@ -1,9 +1,18 @@
 {
   "name": "@route-bridge/config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Config validation helper for route-bridge",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amaan9136/route-bridge.git",
+    "directory": "packages/config"
+  },
+  "homepage": "https://github.com/Amaan9136/route-bridge/tree/main/packages/config#readme",
+  "bugs": {
+    "url": "https://github.com/Amaan9136/route-bridge/issues"
+  },
   "files": [
     "dist",
     "README.md",

@@ -1,9 +1,18 @@
 {
   "name": "@route-bridge/client",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Runtime client utilities for route-bridge generated clients",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amaan9136/route-bridge.git",
+    "directory": "packages/client"
+  },
+  "homepage": "https://github.com/Amaan9136/route-bridge/tree/main/packages/client#readme",
+  "bugs": {
+    "url": "https://github.com/Amaan9136/route-bridge/issues"
+  },
   "files": [
     "dist",
     "README.md",

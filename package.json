@@ -5,7 +5,7 @@
   "description": "route-bridge lets you define backend APIs once and automatically use them in frontend apps as simple function calls. It generates a typed client from a shared contract, removing fetch boilerplate and supporting Express, Flask, Next.js, and Node.js with clean DX.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Amaan9136/route-bridge.git"
+    "url": "git+https://github.com/Amaan9136/route-bridge.git"
   },
   "homepage": "https://github.com/Amaan9136/route-bridge#readme",
   "bugs": {
@@ -23,13 +23,19 @@
     "contract",
     "route-bridge"
   ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm -r --parallel dev",
     "test": "pnpm -r test",
     "generate": "pnpm --filter @route-bridge/generator generate",
     "lint": "pnpm -r lint",
-    "clean": "pnpm -r clean"
+    "clean": "pnpm -r clean",
+    "release": "node scripts/release.js",
+    "versions": "node scripts/versions.js"
   },
   "workspaces": [
     "packages/*",

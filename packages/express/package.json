@@ -1,9 +1,18 @@
 {
   "name": "@route-bridge/express",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Express route helpers for route-bridge",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amaan9136/route-bridge.git",
+    "directory": "packages/express"
+  },
+  "homepage": "https://github.com/Amaan9136/route-bridge/tree/main/packages/express#readme",
+  "bugs": {
+    "url": "https://github.com/Amaan9136/route-bridge/issues"
+  },
   "files": [
     "dist",
     "README.md",
@@ -15,8 +24,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@route-bridge/core": "0.0.1",
-    "@route-bridge/logger": "0.0.1"
+    "@route-bridge/core": "0.0.2",
+    "@route-bridge/logger": "0.0.2"
   },
   "peerDependencies": {
     "express": ">=4.18.0"
