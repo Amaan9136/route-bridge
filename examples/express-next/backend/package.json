@@ -9,10 +9,10 @@
     "dev:generate": "route-bridge generate --manifest ./route-bridge.manifest.json --output ../frontend/src/generated --watch"
   },
   "dependencies": {
-    "@route-bridge/express": "0.0.4",
+    "@route-bridge/express": "0.0.5",
     "@route-bridge/config": "0.0.2",
     "@route-bridge/logger": "0.0.2",
-    "@route-bridge/generator": "0.0.5",
+    "@route-bridge/generator": "0.0.6",
     "cors": "^2.8.5",
     "express": "^4.18.3"
   },

@@ -1,9 +1,4 @@
 #!/usr/bin/env node
-/**
- * create-route-bridge-app
- * Usage: npx create-route-bridge-app
- */
-
 import fs from "fs";
 import path from "path";
 import readline from "readline";
@@ -47,8 +42,6 @@ function write(filePath: string, content: string) {
   console.log(`  ${p("green", "+")} ${filePath}`);
 }
 
-// ─── Express template ─────────────────────────────────────────────────────────
-
 function scaffoldExpress(dir: string, withFrontend: boolean, withTailwind: boolean) {
   write(
     path.join(dir, "backend", "package.json"),
@@ -62,10 +55,10 @@ function scaffoldExpress(dir: string, withFrontend: boolean, withTailwind: boole
           generate: "route-bridge generate --manifest ./route-bridge.manifest.json --output ../frontend/src/generated",
         },
         dependencies: {
-          "@route-bridge/express": "^0.1.0",
-          "@route-bridge/config": "^0.1.0",
-          "@route-bridge/logger": "^0.1.0",
-          "@route-bridge/generator": "^0.1.0",
+          "@route-bridge/express": "^0.0.5",
+          "@route-bridge/config": "^0.0.2",
+          "@route-bridge/logger": "^0.0.2",
+          "@route-bridge/generator": "^0.0.6",
           cors: "^2.8.5",
           express: "^4.18.3",
         },
@@ -96,7 +89,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/** createRouteBridge */
 const { router, defineRoute, writeManifest } = createRouteBridge({
   manifestPath: "./route-bridge.manifest.json",
   logging: config.debug,
@@ -172,8 +164,6 @@ app.listen(PORT, () => {
   if (withFrontend) scaffoldNextFrontend(dir, withTailwind);
 }
 
-// ─── Flask template ───────────────────────────────────────────────────────────
-
 function scaffoldFlask(dir: string, withFrontend: boolean, withTailwind: boolean) {
   write(
     path.join(dir, "backend", "requirements.txt"),
@@ -185,10 +175,7 @@ flask-route-bridge>=0.1.0
 
   write(
     path.join(dir, "backend", "app.py"),
-    `"""
-${path.basename(dir)} - Flask backend powered by route-bridge
-"""
-import os
+    `import os
 from flask import Flask
 from flask_cors import CORS
 from flask_route_bridge import RouteBridge
@@ -257,8 +244,6 @@ generate:
   if (withFrontend) scaffoldNextFrontend(dir, withTailwind);
 }
 
-// ─── Next.js frontend template ────────────────────────────────────────────────
-
 function scaffoldNextFrontend(dir: string, withTailwind: boolean) {
   const deps: Record<string, string> = {
     next: "^15.3.1",
@@ -294,14 +279,13 @@ function scaffoldNextFrontend(dir: string, withTailwind: boolean) {
   );
 
   write(
-    path.join(dir, "frontend", "next.config.ts"),
-    `import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+    path.join(dir, "frontend", "next.config.js"),
+    `/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;
 `
   );
 
@@ -389,7 +373,6 @@ export default function Home() {
   async function fetchGreeting() {
     setLoading(true);
     try {
-      // Replace with: const data = await api.getGreeting({ query: { name: "Dev" } });
       const res = await fetch("http://localhost:3001/api/greeting?name=Dev");
       const data = await res.json() as { message: string };
       setGreeting(data.message);
@@ -456,7 +439,6 @@ export default function Home() {
   async function fetchGreeting() {
     setLoading(true);
     try {
-      // Replace with: const data = await api.getGreeting({ query: { name: "Dev" } });
       const res = await fetch("http://localhost:3001/api/greeting?name=Dev");
       const data = await res.json() as { message: string };
       setGreeting(data.message);
@@ -486,8 +468,6 @@ export default function Home() {
 `
   );
 }
-
-// ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
   console.log(`\n  ${p("bold", p("cyan", "🌉 create-route-bridge-app"))}\n`);

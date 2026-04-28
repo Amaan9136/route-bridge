@@ -28,8 +28,9 @@
     "provenance": true
   },
   "scripts": {
-    "build": "pnpm -r build",
-    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r --filter './packages/**' build",
+    "build:examples": "pnpm -r --filter './examples/**' build",
+    "dev": "pnpm -r --parallel --filter './packages/**' dev",
     "test": "pnpm -r test",
     "generate": "pnpm --filter @route-bridge/generator generate",
     "lint": "pnpm -r lint",

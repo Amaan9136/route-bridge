@@ -1,6 +1,6 @@
 {
   "name": "@route-bridge/express",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Express route helpers for route-bridge",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
